@@ -1,25 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import Dashboard from './dashboard.js';
+import 'antd/dist/antd.css';
+
+const { Header, Content, Footer } = Layout;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+			<Layout className="layout">
+				<Header>
+				  <Menu
+					theme="dark"
+					mode="horizontal"
+					defaultSelectedKeys={['1']}
+					style={{ lineHeight: '64px' }}
+				  >
+					<Menu.Item key="1">Mr.Cooper</Menu.Item>
+				  </Menu>
+				</Header>
+				<Content style={{ padding: '0 50px' }}>
+				  <Breadcrumb style={{ margin: '16px 0' }}>
+					<Breadcrumb.Item>Home</Breadcrumb.Item>
+					<Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+				  </Breadcrumb>
+				  <div style={{ background: '#fff', padding: 24, height: '65vh' }}>
+					<Dashboard />
+				  </div>
+				</Content>
+				<Footer style={{ textAlign: 'center' }}>
+				  @October 2018 Created by Suryakumar
+				</Footer>
+			</Layout>
       </div>
     );
   }
